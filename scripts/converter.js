@@ -5,7 +5,9 @@ const { PDFDocument, StandardFonts, rgb } = PDFLib
 const package = ["silver", "gold", "diamond", "platinum"]
 
 async function generatePDF(Qdata) {
-  const url = "http://127.0.0.1:5500/public/"
+  const loader = document.getElementById("loader")
+  loader.style.zIndex = "1000";
+  const url = "http://192.168.1.7:5500/public/"
   const existingPdfBytes = await fetch(url + "/90sQT.pdf").then((res) =>
     res.arrayBuffer()
   );
@@ -60,7 +62,9 @@ async function generatePDF(Qdata) {
   // this was for creating uri and showing in iframe
   // const pdfDataUri = await pdfDoc.saveAsBase64({ dataUri: true });
   // document.getElementById("pdf").src = pdfDataUri;
-  download(pdfBytes, Qdata.username +"-"+ package[pag], "application/pdf");
+  download(pdfBytes, Qdata.username + "-" + package[pag], "application/pdf");
+  loader.style.zIndex = "-1";
+  alert("quotation downloaded")
   // var file = new Blob([pdfBytes], {
   //   type: "application/pdf;charset=utf-8",
   // });

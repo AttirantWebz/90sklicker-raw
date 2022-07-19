@@ -12,37 +12,74 @@
     <title>90's klicker</title>
   </head>
   <body>
+    <div class="load" id="loader">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
     <div class="header">
       <img src="https://90sklicker.netlify.app/90sklicker.png" alt="logo" />
     </div>
-    <div class="form">
-      <div class="chld">
-        <label for="username">client</label>
-        <input class="input" id="username" type="text" name="username" />
+    <div class="box">
+      <div class="form">
+        <div class="frm">
+          <div class="chld">
+            <label for="username">client</label>
+            <input class="input" id="username" type="text" name="username" />
+          </div>
+          <div class="chld">
+            <label for="cars">package</label>
+            <select id="cars" class="input" name="pk">
+              <option value="0">Silver</option>
+              <option value="1">Gold</option>
+              <option value="2">Diamond</option>
+              <option value="3">Platinum</option>
+            </select>
+          </div>
+          <div class="chld">
+            <label for="price">price</label>
+            <input
+              class="input"
+              id="price"
+              type="number"
+              name="price"
+              value="45000"
+            />
+          </div>
+          <div class="chld">
+            <label for="date">date</label>
+            <input class="input" id="date" type="date" name="date" />
+          </div>
+          <div class="chld">
+            <label for="location">location</label>
+            <input class="input" id="location" type="text" name="location" />
+          </div>
+        </div>
+        <button class="glow-on-hover" onclick="verify()" type="button">
+          Get Quot
+        </button>
       </div>
-      <div class="chld">
-        <label for="cars">package</label>
-        <select id="cars" class="input" name="pk">
-          <option value="0">Silver</option>
-          <option value="1">Gold</option>
-          <option value="2">Diamond</option>
-          <option value="3">Platinum</option>
-        </select>
-      </div>
-      <div class="chld">
-        <label for="price">price</label>
-        <input class="input" id="price" type="number" name="price" value="45000" />
-      </div>
-      <div class="chld">
-        <label for="date">date</label>
-        <input class="input" id="date" type="date" name="date" />
-      </div>
-      <div class="chld">
-        <label for="location">location</label>
-        <input class="input" id="location" type="text" name="location" />
-      </div>
-      <button onclick="verify()">Get Quot</button>
     </div>
+
     <script>
       function verify() {
         const date = document.getElementById("date").value;
@@ -51,7 +88,7 @@
         const username = document.getElementById("username").value;
         const pk = document.getElementById("cars").value;
 
-        if ((date && location && price && username && pk) || true) {
+        if (date && location && price && username && pk) {
           let Qdata = { date, location, price, username, pk };
           generatePDF(Qdata);
         } else alert("plese enter the values in the fields");
