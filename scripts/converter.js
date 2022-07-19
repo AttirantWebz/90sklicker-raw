@@ -7,7 +7,7 @@ const package = ["silver", "gold", "diamond", "platinum"]
 async function generatePDF(Qdata) {
   const loader = document.getElementById("loader")
   loader.style.zIndex = "1000";
-  const url = "http://192.168.1.7:5500/public/"
+  const url = "https://90sklicker.netlify.app/public"
   const existingPdfBytes = await fetch(url + "/90sQT.pdf").then((res) =>
     res.arrayBuffer()
   );
