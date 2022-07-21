@@ -7,7 +7,7 @@ const findlist = (num) => {
 
 const tens = (num) => { //for 1 to 99 this will print the string list
     let word = ""
-
+    console.log(num)
     if (num <= 20) {
         return findlist(num)
     }
@@ -40,15 +40,16 @@ function itos(num) {
             active += 1
         }
         if (length == 8 || length == 9) {
-            word += ` ${number.length == 9 ? tens(`${number.slice(i)[0]}${number.slice(i)[1]}`) : tens(number.slice(i)[0])}`
+            word += ` ${length == 9 ? tens(`${number.slice(i)[0]}${number.slice(i)[1]}`) : tens(number.slice(i)[0])}`
             word += ` ${findlist("10000000")}`
         }
         else if (length == 6 || length == 7) {
-            word += ` ${number.length == 7 ? tens(`${number.slice(i)[0]}${number.slice(i)[1]}`) : tens(number.slice(i)[0])}`
+            word += ` ${length == 7 ? tens(`${number.slice(i)[0]}${number.slice(i)[1]}`) : tens(number.slice(i)[0])}`
             word += ` ${findlist("100000")}`
         }
         else if (length == 4 || length == 5) {
-            word += ` ${number.length == 5 ? tens(`${number.slice(i)[0]}${number.slice(i)[1]}`) : tens(number.slice(i)[0])}`
+            console.log(`${number.slice(i, i + 2)}`)
+            word += ` ${length == 5 ? tens(`${number.slice(i)[0]}${number.slice(i)[1]}`) : tens(number.slice(i)[0])}`
             word += ` ${findlist("1000")}`
         }
         else if (length == 3) {
